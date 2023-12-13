@@ -1,0 +1,18 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:name]} type="text" label="Name" />
+  <.input field={f[:email]} type="text" label="Email" />
+  <.input field={f[:username]} type="text" label="Username" />
+  <.input field={f[:password]} type="text" label="Password" />
+  <.input field={f[:DoB]} type="text" label="Dob" />
+  <.input field={f[:phone_number]} type="text" label="Phone number" />
+  <.input field={f[:about_me]} type="text" label="About me" />
+  <.input field={f[:current_location]} type="text" label="Current location" />
+  <.input field={f[:interests]} type="text" label="Interests" />
+  <.input field={f[:dislikes]} type="text" label="Dislikes" />
+  <:actions>
+    <.button>Save Users</.button>
+  </:actions>
+</.simple_form>

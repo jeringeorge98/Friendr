@@ -1,0 +1,32 @@
+<.header>
+  Listing Users
+  <:actions>
+    <.link href={~p"/users/new"}>
+      <.button>New Users</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="users" rows={@users_collection} row_click={&JS.navigate(~p"/users/#{&1}")}>
+  <:col :let={users} label="Name"><%= users.name %></:col>
+  <:col :let={users} label="Email"><%= users.email %></:col>
+  <:col :let={users} label="Username"><%= users.username %></:col>
+  <:col :let={users} label="Password"><%= users.password %></:col>
+  <:col :let={users} label="Dob"><%= users.dob %></:col>
+  <:col :let={users} label="Phone number"><%= users.phone_number %></:col>
+  <:col :let={users} label="About me"><%= users.about_me %></:col>
+  <:col :let={users} label="Current location"><%= users.current_location %></:col>
+  <:col :let={users} label="Interests"><%= users.interests %></:col>
+  <:col :let={users} label="Dislikes"><%= users.dislikes %></:col>
+  <:action :let={users}>
+    <div class="sr-only">
+      <.link navigate={~p"/users/#{users}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/users/#{users}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={users}>
+    <.link href={~p"/users/#{users}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>
